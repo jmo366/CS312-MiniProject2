@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('/mnt/c/Users/maldo/OneDrive/Documents/School/CS312/MiniProject/2/views/partials/head'); %>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="container">
+
+<header>
+  <%- include('/mnt/c/Users/maldo/OneDrive/Documents/School/CS312/MiniProject/2/views/partials/header'); %>
+</header>
+
+<main>
+    <body>
+      <div class="jumbotron">
+        <h1>UV Check &#x2600; </h1>
+        <p>Find your city's coordinates here: <a href="https://www.latlong.net/" target="_blank">coordinates!</a></p>
+        <hr>
+        <div>
+        <form action="/getUv" method="post">
+          <input type="text" name="lat" id="lat" placeholder="Latitude" required>
+          <input type="text" name ="long" id="long" placeholder="Longitude" required>
+          <button type="submit">Enter</button>
+        </form>
+        <p>UV Index: <strong><%= uvIndex %></strong></p>
+        <% if (uvIndex > 3) { %>
+            <p> UV Index <strong> HIGH </strong> &#129524; recommended 	
+                &#128521; </p>
+          <% } %>
+        </div>
+      </div>
+    </body>
+  </main>
+
+<footer>
+  <%- include('/mnt/c/Users/maldo/OneDrive/Documents/School/CS312/MiniProject/2/views/partials/footer'); %>
+</footer>
+</body>
+</html>
